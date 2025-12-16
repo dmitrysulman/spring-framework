@@ -168,6 +168,14 @@ class InvocableHandlerMethodTests {
 			.withMessageContaining("Illegal argument");
 	}
 
+	@Test
+	void discoverParameterName() {
+		InvocableHandlerMethod invocable = getInvocable(Integer.class, String.class);
+
+		assertThat(invocable.getMethodParameters()[0].getParameterName()).isEqualTo("intArg");
+		assertThat(invocable.getMethodParameters()[1].getParameterName()).isEqualTo("stringArg");
+	}
+
 	private InvocableHandlerMethod getInvocable(Class<?>... argTypes) {
 		Method method = ResolvableMethod.on(Handler.class).argTypes(argTypes).resolveMethod();
 		InvocableHandlerMethod handlerMethod = new InvocableHandlerMethod(new Handler(), method);

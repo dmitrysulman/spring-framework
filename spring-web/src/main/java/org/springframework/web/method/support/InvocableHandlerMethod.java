@@ -85,6 +85,7 @@ public class InvocableHandlerMethod extends HandlerMethod {
 	 */
 	public InvocableHandlerMethod(HandlerMethod handlerMethod) {
 		super(handlerMethod);
+		initParameterNameDiscovery();
 	}
 
 	/**
@@ -92,6 +93,7 @@ public class InvocableHandlerMethod extends HandlerMethod {
 	 */
 	public InvocableHandlerMethod(Object bean, Method method) {
 		super(bean, method);
+		initParameterNameDiscovery();
 	}
 
 	/**
@@ -101,6 +103,7 @@ public class InvocableHandlerMethod extends HandlerMethod {
 	 */
 	protected InvocableHandlerMethod(Object bean, Method method, @Nullable MessageSource messageSource) {
 		super(bean, method, messageSource);
+		initParameterNameDiscovery();
 	}
 
 	/**
@@ -114,6 +117,7 @@ public class InvocableHandlerMethod extends HandlerMethod {
 			throws NoSuchMethodException {
 
 		super(bean, methodName, parameterTypes);
+		initParameterNameDiscovery();
 	}
 
 
@@ -132,6 +136,7 @@ public class InvocableHandlerMethod extends HandlerMethod {
 	 */
 	public void setParameterNameDiscoverer(ParameterNameDiscoverer parameterNameDiscoverer) {
 		this.parameterNameDiscoverer = parameterNameDiscoverer;
+		initParameterNameDiscovery();
 	}
 
 	/**
@@ -295,6 +300,11 @@ public class InvocableHandlerMethod extends HandlerMethod {
 		return (result instanceof Mono<?> mono ? mono.handle(KotlinDelegate::handleResult) : result);
 	}
 
+	private void initParameterNameDiscovery() {
+		for (MethodParameter parameter : getMethodParameters()) {
+			parameter.initParameterNameDiscovery(this.parameterNameDiscoverer);
+		}
+	}
 
 	/**
 	 * Inner class to avoid a hard dependency on Kotlin at runtime.
