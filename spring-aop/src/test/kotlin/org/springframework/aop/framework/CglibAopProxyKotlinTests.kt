@@ -62,6 +62,7 @@ class CglibAopProxyKotlinTests {
 	@Test
 	suspend fun proxiedSuspendedInvocationValueClass() {
 		val proxyFactory = ProxyFactory(TestBean())
+		proxyFactory.isProxyTargetClass = true
 		proxyFactory.addAdvice(MethodInterceptor {
 			ValueClass("bar")
 		})
@@ -72,6 +73,7 @@ class CglibAopProxyKotlinTests {
 	@Test
 	suspend fun proxiedSuspendedInvocationValueClassProceed() {
 		val proxyFactory = ProxyFactory(TestBean())
+		proxyFactory.isProxyTargetClass = true
 		proxyFactory.addAdvice(MethodInterceptor {
 			it.proceed()
 		})
@@ -82,6 +84,7 @@ class CglibAopProxyKotlinTests {
 	@Test
 	suspend fun proxiedSuspendedInvocationNullableValueClass() {
 		val proxyFactory = ProxyFactory(TestBean())
+		proxyFactory.isProxyTargetClass = true
 		proxyFactory.addAdvice(MethodInterceptor {
 			ValueClass("bar")
 		})
@@ -92,6 +95,7 @@ class CglibAopProxyKotlinTests {
 	@Test
 	suspend fun proxiedSuspendedInvocationNullableValueClassNull() {
 		val proxyFactory = ProxyFactory(TestBean())
+		proxyFactory.isProxyTargetClass = true
 		proxyFactory.addAdvice(MethodInterceptor {
 			null
 		})
@@ -102,6 +106,7 @@ class CglibAopProxyKotlinTests {
 	@Test
 	suspend fun proxiedSuspendedInvocationValueClassNullableValue() {
 		val proxyFactory = ProxyFactory(TestBean())
+		proxyFactory.isProxyTargetClass = true
 		proxyFactory.addAdvice(MethodInterceptor {
 			ValueClassNullableValue("bar")
 		})
@@ -112,6 +117,7 @@ class CglibAopProxyKotlinTests {
 	@Test
 	suspend fun proxiedSuspendedInvocationValueClassNullableValueNull() {
 		val proxyFactory = ProxyFactory(TestBean())
+		proxyFactory.isProxyTargetClass = true
 		proxyFactory.addAdvice(MethodInterceptor {
 			ValueClassNullableValue(null)
 		})
@@ -122,6 +128,7 @@ class CglibAopProxyKotlinTests {
 	@Test
 	suspend fun proxiedSuspendedInvocationResult() {
 		val proxyFactory = ProxyFactory(TestBean())
+		proxyFactory.isProxyTargetClass = true
 		proxyFactory.addAdvice(MethodInterceptor {
 			Result.success("bar")
 		})
@@ -132,6 +139,7 @@ class CglibAopProxyKotlinTests {
 	@Test
 	suspend fun proxiedSuspendedInvocationString() {
 		val proxyFactory = ProxyFactory(TestBean())
+		proxyFactory.isProxyTargetClass = true
 		proxyFactory.addAdvice(MethodInterceptor {
 			"bar"
 		})
@@ -142,6 +150,7 @@ class CglibAopProxyKotlinTests {
 	@Test
 	suspend fun proxiedSuspendedInvocationAnyAdviceReturnValueClass() {
 		val proxyFactory = ProxyFactory(TestBean())
+		proxyFactory.isProxyTargetClass = true
 		proxyFactory.addAdvice(MethodInterceptor {
 			ValueClass("bar")
 		})
@@ -152,6 +161,7 @@ class CglibAopProxyKotlinTests {
 	@Test
 	suspend fun proxiedSuspendedInvocationValueClassPrimitiveValue() {
 		val proxyFactory = ProxyFactory(TestBean())
+		proxyFactory.isProxyTargetClass = true
 		proxyFactory.addAdvice(MethodInterceptor {
 			ValueClassPrimitiveValue(1)
 		})
@@ -162,6 +172,7 @@ class CglibAopProxyKotlinTests {
 	@Test
 	suspend fun proxiedSuspendedInvocationValueClassPrimitiveValueProceed() {
 		val proxyFactory = ProxyFactory(TestBean())
+		proxyFactory.isProxyTargetClass = true
 		proxyFactory.addAdvice(MethodInterceptor {
 			it.proceed()
 		})
@@ -172,6 +183,7 @@ class CglibAopProxyKotlinTests {
 	@Test
 	suspend fun proxiedSuspendedInvocationNullableValueClassPrimitiveValue() {
 		val proxyFactory = ProxyFactory(TestBean())
+		proxyFactory.isProxyTargetClass = true
 		proxyFactory.addAdvice(MethodInterceptor {
 			ValueClassPrimitiveValue(1)
 		})
@@ -182,6 +194,7 @@ class CglibAopProxyKotlinTests {
 	@Test
 	suspend fun proxiedSuspendedInvocationNullableValueClassPrimitiveValueNull() {
 		val proxyFactory = ProxyFactory(TestBean())
+		proxyFactory.isProxyTargetClass = true
 		proxyFactory.addAdvice(MethodInterceptor {
 			null
 		})
@@ -192,6 +205,7 @@ class CglibAopProxyKotlinTests {
 	@Test
 	suspend fun proxiedSuspendedInvocationNullableValueClassNullableValue() {
 		val proxyFactory = ProxyFactory(TestBean())
+		proxyFactory.isProxyTargetClass = true
 		proxyFactory.addAdvice(MethodInterceptor {
 			ValueClassNullableValue("bar")
 		})
@@ -202,6 +216,7 @@ class CglibAopProxyKotlinTests {
 	@Test
 	suspend fun proxiedSuspendedInvocationNullableValueClassNullableValueNull() {
 		val proxyFactory = ProxyFactory(TestBean())
+		proxyFactory.isProxyTargetClass = true
 		proxyFactory.addAdvice(MethodInterceptor {
 			ValueClassNullableValue(null)
 		})
@@ -212,6 +227,7 @@ class CglibAopProxyKotlinTests {
 	@Test
 	suspend fun proxiedSuspendedInvocationNullableGenericValueClass() {
 		val proxyFactory = ProxyFactory(TestBean())
+		proxyFactory.isProxyTargetClass = true
 		proxyFactory.addAdvice(MethodInterceptor {
 			GenericValueClass("bar")
 		})
@@ -222,6 +238,7 @@ class CglibAopProxyKotlinTests {
 	@Test
 	suspend fun proxiedSuspendedInvocationNestedValueClass() {
 		val proxyFactory = ProxyFactory(TestBean())
+		proxyFactory.isProxyTargetClass = true
 		proxyFactory.addAdvice(MethodInterceptor {
 			NestedValueClass(ValueClass("bar"))
 		})
@@ -232,6 +249,7 @@ class CglibAopProxyKotlinTests {
 	@Test
 	suspend fun proxiedSuspendedInvocationNullableNestedValueClassPrimitiveValue() {
 		val proxyFactory = ProxyFactory(TestBean())
+		proxyFactory.isProxyTargetClass = true
 		proxyFactory.addAdvice(MethodInterceptor {
 			NestedValueClassPrimitiveValue(ValueClassPrimitiveValue(1))
 		})
@@ -243,6 +261,7 @@ class CglibAopProxyKotlinTests {
 	@Test
 	suspend fun proxiedSuspendedInvocationNullableNestedValueClassNullableValue() {
 		val proxyFactory = ProxyFactory(TestBean())
+		proxyFactory.isProxyTargetClass = true
 		proxyFactory.addAdvice(MethodInterceptor {
 			NestedValueClassNullableValue(ValueClassNullableValue("bar"))
 		})
@@ -254,6 +273,7 @@ class CglibAopProxyKotlinTests {
 	@Test
 	suspend fun proxiedSuspendedInvocationNullableNonNullGenericValueClass() {
 		val proxyFactory = ProxyFactory(TestBean())
+		proxyFactory.isProxyTargetClass = true
 		proxyFactory.addAdvice(MethodInterceptor {
 			NonNullGenericValueClass("bar")
 		})
@@ -264,6 +284,7 @@ class CglibAopProxyKotlinTests {
 	@Test
 	suspend fun proxiedSuspendedInvocationNullableResult() {
 		val proxyFactory = ProxyFactory(TestBean())
+		proxyFactory.isProxyTargetClass = true
 		proxyFactory.addAdvice(MethodInterceptor {
 			Result.success("bar")
 		})
@@ -384,8 +405,12 @@ class CglibAopProxyKotlinTests {
 	@JvmInline
 	value class NonNullGenericValueClass<T : Any>(val value: T)
 
-	open class TestBean {
-		open suspend fun returnValueClass(): ValueClass {
+	interface TestBeanInterface {
+		suspend fun returnValueClass(): ValueClass
+	}
+
+	open class TestBean : TestBeanInterface {
+		override suspend fun returnValueClass(): ValueClass {
 			delay(10.milliseconds)
 			return ValueClass("foo")
 		}

@@ -128,7 +128,7 @@ abstract class CoroutinesUtils {
 				for (KFunction<?> candidate : KClasses.getDeclaredMemberFunctions(superClass)) {
 					if (candidate.getName().equals(function.getName()) && candidate.isSuspend() &&
 							hasSameParameterTypes(function, candidate, superType) &&
-							candidate.getReturnType().getClassifier() != valueKClass) {
+							!Objects.equals(candidate.getReturnType().getClassifier(), valueKClass)) {
 						return true;
 					}
 				}
